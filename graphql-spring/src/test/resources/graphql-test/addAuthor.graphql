@@ -1,0 +1,6 @@
+mutation addAuthor($firstNameAuthor: String, $lastNameAuthor: String, $ageAuthor: NonNegativeInt) {
+    addAuthor(author:{firstNameAuthor:$firstNameAuthor, lastNameAuthor:$lastNameAuthor, ageAuthor:$NonNegativeInt}){
+        id
+        firstName
+    }
+}

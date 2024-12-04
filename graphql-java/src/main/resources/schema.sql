@@ -1,0 +1,19 @@
+
+DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS books;
+
+CREATE TABLE books(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(45),
+	pages INT,
+	category VARCHAR(45)
+);
+
+CREATE TABLE authors(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	first_name VARCHAR(255),
+	last_name VARCHAR(255),
+	age INT,
+	book_id INT UNIQUE NOT NULL,
+	CONSTRAINT book_author_fk FOREIGN KEY(book_id) REFERENCES books(id)
+);

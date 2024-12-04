@@ -1,0 +1,19 @@
+scalar NonNegativeInt
+scalar Date
+scalar DateTime
+directive @NotBlank(message : String! = "graphql.validation.NotBlank.message") on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @Expression(value : String!, message : String = "graphql.validation.Expression.message") on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
+type Mutation{
+    addBook(bookName:String!, pages:NonNegativeInt!, category:Category,publishedAt:Date, author:AuthorInput):Book
+    uploadFile:ID!
+    addAuthor(author:AuthorInput!):Author
+}
+
+
+input AuthorInput{
+    firstNameAuthor:String @NotBlank(message: "addAuthor.author.firstNameAuthor")
+    lastNameAuthor:String
+    ageAuthor:NonNegativeInt @Expression(value:"${validatedValue < 500}" message: "${gqlArgument.name} must be less than 500 (current: {validatedValue})")
+}
+

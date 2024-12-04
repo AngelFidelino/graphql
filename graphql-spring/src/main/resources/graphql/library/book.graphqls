@@ -1,0 +1,8 @@
+type Book {
+    id:ID!
+    name:String!
+    pages:Int
+    publishedAt:Date
+    author: Author
+    category: Category
+}

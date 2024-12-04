@@ -1,0 +1,3 @@
+type Mutation {
+    createBook(bookName:String!, pages:Int!, category:Category, firstNameAuthor:String, lastNameAuthor:String, ageAuthor:Int):String
+}

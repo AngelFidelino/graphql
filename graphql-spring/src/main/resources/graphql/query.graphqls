@@ -1,0 +1,9 @@
+type Query {
+    getBookById(id:ID!):Book
+    getBooks:[Book]
+    getBooksPageable(first:Int, after:String, last:Int, before:String): BookConnection
+    getAuthors:[Author]
+    getAuthorById(id:ID!):Author
+}
+
+

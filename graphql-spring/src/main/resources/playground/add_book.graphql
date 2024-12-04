@@ -1,0 +1,10 @@
+mutation addBook($bookName:String!, $pages:NonNegativeInt!, $firstNameAuthor:String, $lastNameAuthor:String, $ageAuthor:NonNegativeInt, $category:Category) {
+    addBook(bookName:$bookName, pages:$pages, author: {firstNameAuthor:$firstNameAuthor, lastNameAuthor:$lastNameAuthor, ageAuthor: $ageAuthor}, category:$category){
+        id
+        name
+        author {
+            firstName
+            lastName
+        }
+    }
+}
